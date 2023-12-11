@@ -9,10 +9,27 @@
     <link rel="stylesheet" href="static/styles.css">
   </head>
   <body>
-    <h1 class="header1">AzureShare</h1>
-    <form method=post enctype=multipart/form-data>
-      <input type=file name=file>
-      <input type=submit value=Upload>
-    </form>
+    <div class="left">
+      <h1 class="header1">AzureShare</h1>
+      <p class="text">
+        A web application to securely upload and download
+      </p>
+      <p class="text">
+        files from Azure Blob Storage.
+      </p>
+      <p class="text">
+        Download available via generated link.
+      </p>
+      <p class="text">
+        Files automatically deleted after 24 hours.
+      </p>
+      <form method=post enctype=multipart/form-data class="input">
+        <input type=file name=file class="input">
+        <input type=submit value=Upload class="input">
+      </form>
+    </div>
+    <div class="right">
+      <img class="img" src="{{url_for('static', filename='images/upload-file.png')}}">
+    </div>
   </body>
 </html>

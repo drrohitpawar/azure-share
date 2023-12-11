@@ -6,10 +6,23 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="static/stylesus.css">
+    <script>
+      function copyToClipboard(link) {
+          navigator.clipboard.writeText(link)
+      }
+    </script>
   </head>
   <body>
-    <hi>Upload Successful!</hi>
-    </form>
+    <div style="text-align: center;">
+      <h1 class="header1">Upload Successful</h1>
+      <div class="link">
+        <a href="{{ link_url }}" class="link_text">{{ link_url }}</a>
+      </div>
+      <button class="button" onClick="copyToClipboard('{{ link_url }}')">COPY</button>
+      <a href="{{ url_for('home') }}">
+        <button class="button">HOME</button>
+      </a>
+    </div>
   </body>
 </html>

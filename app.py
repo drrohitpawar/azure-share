@@ -18,21 +18,33 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def home():
   return render_template('index.html')
 
+
 @app.route('/', methods = ['GET', 'POST'])
 def upload_file():
    if request.method == 'POST':
       f = request.files['file']
-      file_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename))
-      f.save(file_path)
+      if f.filename == '':
+        return render_template('index.html')
+      else:
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename))
+        f.save(file_path)
 
-      blob_name = f.filename
-      blob_client = container_client.get_blob_client(blob_name)
-      with open(file_path, 'rb') as data:
-        blob_client.upload_blob(data)
+        blob_name = f.filename
+        blob_client = container_client.get_blob_client(blob_name)
 
-      os.remove(file_path)
+        blob = BlobClient.from_connection_string(conn_str=AZURE_STORAGE_CONNECTION_STRING, container_name=AZURE_STORAGE_CONTAINER_NAME, blob_name=blob_name)
+        if blob.exists() == True:
+          blob_client.delete_blob()
+        
+        with open(file_path, 'rb') as data:
+          blob_client.upload_blob(data)
 
-      return render_template('uploadsuccessful.html')
+        os.remove(file_path)
+
+        blob_client = container_client.get_blob_client(blob_name)
+        url = blob_client.url
+
+        return render_template('uploadsuccessful.html', link_url = url)
 
 if __name__ == '__main__':
   app.run(debug=True)
