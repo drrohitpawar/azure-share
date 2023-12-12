@@ -12,8 +12,6 @@ Azure Services used:
   - Azure Blob Storage
   - Azure SDK for Python
   - Azure Storage Lifecycle Management
-  - Azure Key Vaults
-  
 
 ## Installation
 If the web application is running, it can be accessed and used at the following link:
@@ -25,7 +23,7 @@ To run locally, clone to git repository to your own local machine:
 $ git clone https://github.com/drrohitpawar/AzureShare.git
 ```
 
-Once you are in the cloned directory in your terminal:
+Create an Azure account and create a storage account and container. Go to the app.py python file, and enter your unique connection string and container name. Save the file and run the following command in your terminal:
 
 ```bash
 $ python -m flask run
