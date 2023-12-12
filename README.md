@@ -7,6 +7,14 @@ This web application was developed using the Python Flask framework and is deplo
 
 ![](https://github.com/drrohitpawar/AzureShare/blob/main/static/images/Demo.gif)
 
+Azure Services used:
+  - Azure App Services
+  - Azure Blob Storage
+  - Azure SDK for Python
+  - Azure Storage Lifecycle Management
+  - Azure Key Vaults
+  
+
 ## Installation
 If the web application is running, it can be accessed and used at the following link:
 [azure-share.azurewebsites.net](azure-share.azurewebsites.net)
@@ -24,3 +32,11 @@ $ flask run
 ```
 
 Then open a browser and connect to 'localhost:5000'
+
+## Usage
+
+1. Once the application is open, click on 'choose file' and browse file explorer for the file you want to upload.
+2. Once selected, ensure you can see the correct file attached.
+3. Click 'Upload' and wait for the successful upload screen to present.
+4. You can now click on the 'copy' button to copy the download link to your clipboard and share with others.
+5. Or you can click 'home' to return to homepage.
