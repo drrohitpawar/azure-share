@@ -11,6 +11,16 @@ This web application was developed using the Python Flask framework and is deplo
 If the web application is running, it can be accessed and used at the following link:
 [azure-share.azurewebsites.net](azure-share.azurewebsites.net)
 
-```bash
-$ git clone 
+To run locally, clone to git repository to your own local machine:
 
+```bash
+$ git clone https://github.com/drrohitpawar/AzureShare.git
+```
+
+Once you are in the cloned directory in your terminal:
+
+```bash
+$ flask run
+```
+
+Then open a browser and connect to 'localhost:5000'
