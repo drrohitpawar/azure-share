@@ -28,7 +28,7 @@ $ git clone https://github.com/drrohitpawar/AzureShare.git
 Once you are in the cloned directory in your terminal:
 
 ```bash
-$ flask run
+$ python -m flask run
 ```
 
 Then open a browser and connect to 'localhost:5000'
