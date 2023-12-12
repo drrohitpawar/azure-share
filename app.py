@@ -2,21 +2,9 @@ import os
 from flask import Flask, request, render_template
 from werkzeug.utils import secure_filename
 from azure.storage.blob import BlobServiceClient, BlobClient
-from azure.identity import DefaultAzureCredential
-from azure.keyvault.secrets import SecretClient
 
-key_vault_url = "https://azuresharekey.vault.azure.net/"
-secret_name_connection_string = "AZURE-STORAGE-CONNECTION-STRING"
-secret_name_container_name = "AZURE-STORAGE-CONTAINER-NAME"
-
-credential = DefaultAzureCredential()
-secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
-
-connection_string_secret = secret_client.get_secret(secret_name_connection_string)
-container_name_secret = secret_client.get_secret(secret_name_container_name)
-
-AZURE_STORAGE_CONNECTION_STRING = connection_string_secret.value
-AZURE_STORAGE_CONTAINER_NAME = container_name_secret.value
+AZURE_STORAGE_CONNECTION_STRING = 'Add connection string'
+AZURE_STORAGE_CONTAINER_NAME = 'Add container name'
 
 blob_service_client = BlobServiceClient.from_connection_string(AZURE_STORAGE_CONNECTION_STRING)
 container_client = blob_service_client.get_container_client(AZURE_STORAGE_CONTAINER_NAME)
